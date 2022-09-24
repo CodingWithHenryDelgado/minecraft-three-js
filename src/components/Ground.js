@@ -9,6 +9,8 @@ export const Ground = () => {
 
     const [addCube] = useStore((state) => [state.addCube])
 
+    groundTexture.repeat.set(100, 100)
+
     return (
         <mesh
             ref={ref}

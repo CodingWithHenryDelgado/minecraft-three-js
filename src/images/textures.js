@@ -1,4 +1,5 @@
 import { NearestFilter, TextureLoader, RepeatWrapping } from 'three'
+
 import {
     dirtImg,
     logImg,
@@ -23,7 +24,6 @@ groundTexture.magFilter = NearestFilter
 
 groundTexture.wrapS = RepeatWrapping
 groundTexture.wrapT = RepeatWrapping
-groundTexture.repeat.set(100, 100)
 
 export {
     dirtTexture,
