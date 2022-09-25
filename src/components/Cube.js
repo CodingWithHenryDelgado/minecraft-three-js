@@ -15,7 +15,6 @@ export const Cube = ({ position, texture }) => {
 
     return (
         <mesh
-            ref={ref}
             onPointerMove={(e) => {
                 e.stopPropagation()
                 setIsHovered(true)
@@ -57,6 +56,7 @@ export const Cube = ({ position, texture }) => {
                     return
                 }
             }}
+            ref={ref}
         >
             <boxGeometry attach="geometry" />
             <meshStandardMaterial

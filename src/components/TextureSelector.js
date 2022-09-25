@@ -13,7 +13,7 @@ const images = {
 
 export const TextureSelector = () => {
     const [visible, setVisible] = useState(false)
-    const [activeTexture, setTexture] = useStore((state) => [state.texture, state.setTexture])
+    const [texture, setTexture] = useStore((state) => [state.texture, state.setTexture])
     const {
         dirt,
         grass,
@@ -45,12 +45,12 @@ export const TextureSelector = () => {
         return () => {
             clearTimeout(visibilityTimeout)
         }
-    }, [activeTexture])
+    }, [texture])
 
     return visible && (
         <div className='absolute centered texture-selector'>
             {Object.entries(images).map(([k, src]) => {
-                return (<img alt={k} className={`${k === activeTexture ? 'active' : ''}`} key={k} src={src} />)
+                return (<img alt={k} className={`${k === texture ? 'active' : ''}`} key={k} src={src} />)
             })}
         </div>
     )

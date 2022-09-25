@@ -1,8 +1,7 @@
-import create from "zustand";
-import { nanoid } from "nanoid";
+import create from 'zustand'
+import { nanoid } from 'nanoid'
 
 const getLocalStorage = (key) => JSON.parse(window.localStorage.getItem(key))
-
 const setLocalStorage = (key, value) => window.localStorage.setItem(key, JSON.stringify(value))
 
 export const useStore = create((set) => ({
@@ -14,7 +13,7 @@ export const useStore = create((set) => ({
                 ...prev.cubes,
                 {
                     key: nanoid(),
-                    pos: [x, y, z],
+                    position: [x, y, z],
                     texture: prev.texture
                 }
             ]
@@ -23,9 +22,10 @@ export const useStore = create((set) => ({
     removeCube: (x, y, z) => {
         set((prev) => ({
             cubes: prev.cubes.filter(cube => {
-                const [X, Y, Z] = cube.pos
+                const [X, Y, Z] = cube.position
                 return X !== x || Y !== y || Z !== z
             })
+
         }))
     },
     setTexture: (texture) => {
