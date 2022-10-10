@@ -12,12 +12,13 @@ export const Ground = () => {
 
     return (
         <mesh
-            ref={ref}
             onClick={(e) => {
                 e.stopPropagation()
                 const [x, y, z] = Object.values(e.point).map(val => Math.ceil(val));
                 addCube(x, y, z)
-            }}>
+            }}
+            ref={ref}
+        >
             <planeBufferGeometry attach='geometry' args={[100, 100]} />
             <meshStandardMaterial attach='material' map={groundTexture} />
         </mesh>
